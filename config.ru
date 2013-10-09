@@ -1,1 +1,2 @@
-require 'socialnetwork_app'
+require './socialnetwork_app'
+run Sinatra::Application

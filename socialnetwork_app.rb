@@ -13,5 +13,11 @@ end
 set :database, ENV['DATABASE_URL']
 
 get '/' do
-  "Hello, world"
+
+  erb :index
+end
+
+post '/signup' do
+  # add code here to create new user in users table
+  redirect '/'
 end
