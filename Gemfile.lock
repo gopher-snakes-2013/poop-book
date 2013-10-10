@@ -47,6 +47,8 @@ GEM
     rspec-mocks (2.14.3)
     shotgun (0.9)
       rack (>= 1.0)
+    shoulda-matchers (2.4.0)
+      activesupport (>= 3.0.0)
     sinatra (1.1.0)
       rack (~> 1.1)
       tilt (~> 1.1)
@@ -69,6 +71,7 @@ DEPENDENCIES
   dotenv
   rspec
   shotgun
+  shoulda-matchers
   sinatra
   sinatra-activerecord
   sqlite3

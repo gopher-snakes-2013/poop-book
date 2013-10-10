@@ -1,5 +1,14 @@
+<h2>Sign Up</h2>
 <form method="POST" action="/signup">
-<input type="text" name="sign_up_user_name">User Name</input>
-<input type="text" name="sign_up_password">Password</input>
+<label>User Name: <input type="text" name="sign_up_user_name"></label><br/>
+<label>Password: <input type="password" name="sign_up_password"></label><br/>
+<label>Confirm Password: <input type="password" name="confirm_password"></label><br/>
 <input type="submit" name="Sign Up" value="Sign Up"></input>
+</form>
+
+<h2>Login</h2>
+<form method="POST" action="/login">
+<label>User Name: <input type="text" name="login_user_name"></label><br/>
+<label>Password: <input type="password" name="login_password"></label><br/>
+<input type="submit" name="Login" value="Login"></input>
 </form>

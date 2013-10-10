@@ -9,5 +9,6 @@ group :development, :test do
   gem 'shotgun'
   gem 'capybara'
   gem 'dotenv'
+  gem 'shoulda-matchers'
 end
   
