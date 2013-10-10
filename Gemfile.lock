@@ -20,9 +20,11 @@ GEM
     atomic (1.1.14)
     builder (3.1.4)
     diff-lcs (1.2.4)
+    dotenv (0.9.0)
     i18n (0.6.5)
     minitest (4.7.5)
     multi_json (1.8.1)
+    pg (0.17.0)
     rack (1.5.2)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
@@ -50,6 +52,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
+  pg
   rspec
   shotgun
   sinatra
