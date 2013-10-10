@@ -4,11 +4,14 @@ gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'sqlite3'
 
-group :development, :test do 
-  gem 'rspec'
-  gem 'shotgun'
-  gem 'capybara'
-  gem 'dotenv'
-  gem 'shoulda-matchers'
-end
-  
+gem 'rspec'
+gem 'shotgun'
+gem 'capybara'
+gem 'dotenv'
+gem 'shoulda-matchers'  
+
+
+
+gem 'pg' 
+
+
