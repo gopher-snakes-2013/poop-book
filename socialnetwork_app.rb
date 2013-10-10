@@ -3,15 +3,21 @@ $LOAD_PATH.unshift(File.expand_path('.'))
 require 'sinatra'
 require 'sinatra/activerecord'
 require_relative 'models/user'
+require_relative 'models/post'
 
-begin
 require 'dotenv'
 Dotenv.load
-rescue LoadError
+
+
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/social_network')
+
+get '/posts' do
+  @posts = Post.all.reverse
+  erb :post
 end
 
-set :database, ENV['DATABASE_URL']
-
-get '/' do
-  "Hello, world"
+post '/posts' do
+  Post.create(:content => params["user_input"])
+  redirect '/posts'
 end
+
