@@ -8,30 +8,21 @@ require_relative 'models/post'
 require 'dotenv'
 Dotenv.load
 
-
 ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/social_network')
-
-get '/posts' do
-  @posts = Post.all.reverse
-  erb :post
-end
 
 post '/posts' do
   Post.create(:content => params["user_input"])
-  redirect '/posts'
+  redirect '/user/:username' # DEAL WITH THIS WITH STEVEN AND SESSIONS!!!!!!!!!!!
 end
 
 get '/' do
-
   erb :index
 end
 
-get "/user/:username" do
+get "/user/:username" do # LOOK AT THIS FUCKER TOO.
   @username = params[:username]
-  "hello psycho"
+  @posts = Post.all.reverse
   erb :user 
-  #redirecting to a new erb with form on it vs. post page?
-  #have post form directly on that page
 end
 
 get '/incorrect-login' do
@@ -39,9 +30,7 @@ get '/incorrect-login' do
 end
 
 post '/signup' do
-  # add code here to create new user in users table
   current_user = User.create!(username: params[:sign_up_user_name], password: params[:sign_up_password])
-  puts current_user.username
   redirect "/user/#{current_user.username}"
 end
 
