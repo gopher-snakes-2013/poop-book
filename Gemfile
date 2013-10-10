@@ -3,7 +3,15 @@ ruby "1.9.3"
 gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'sqlite3'
+
 gem 'rspec'
-gem 'dotenv'
 gem 'shotgun'
-gem 'pg'
+gem 'capybara'
+gem 'dotenv'
+gem 'shoulda-matchers'  
+
+
+
+gem 'pg' 
+
+
