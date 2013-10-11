@@ -37,7 +37,7 @@ get '/incorrect-login' do
 end
 
 post '/signup' do
-  current_user = User.create!(username: params[:sign_up_user_name], password: params[:sign_up_password])
+  current_user = User.create(username: params[:sign_up_user_name], password: params[:sign_up_password])
   session["user_id"] = current_user.id
   redirect "/user/#{current_user.username}"
 end
