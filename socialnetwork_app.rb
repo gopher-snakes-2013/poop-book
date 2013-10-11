@@ -5,8 +5,11 @@ require 'sinatra/activerecord'
 require_relative 'models/user'
 require_relative 'models/post'
 
+begin
 require 'dotenv'
 Dotenv.load
+rescue LoadError
+end
 #do foreman start in command line for locally doin shhheet
 ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 # when deploy
