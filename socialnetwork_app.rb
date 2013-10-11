@@ -8,7 +8,7 @@ require_relative 'models/post'
 # require 'dotenv'
 # Dotenv.load
 #do foreman start in command line for locally doin shhheet
-ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
+ActiveRecord::Base.establish_connection('postgres://localhost/poop-book')
 
 enable :sessions
 

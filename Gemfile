@@ -9,7 +9,7 @@ group :development do
   gem 'rspec'
   gem 'capybara'
   gem 'shoulda-matchers'
-  gem 'dotenv'
+  gem 'sqlite3'
 end
 
 group :production do

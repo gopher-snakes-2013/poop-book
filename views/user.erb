@@ -1,17 +1,21 @@
+!DOCTYPE <html>
 <h1> Welcome to Poop-book, <%= @logged_in_user.username %>! </h1>
 
 
 <form method="post" action="/posts">
-<label> New Post:
-  <input name="user_input" type="text"/>
-</label>
+	<label> New Post:
+		<input name="user_input" type="text"/>
+	</label>
 
-<input type="submit"/>
+	<input type="submit"/>
 </form>
 
 <h3> Poopy Posts: </h3>
 
 <% @posts.each do |post| %>
 <li style ="list-style:none;margin-bottom:10px;margin-left: 5px;"> 
-  <%= post.content %> </li>
-<% end %>
+	<p><strong><%= @logged_in_user.username%>:</strong>
+		<%= post.content %></p>
+	</li>
+	<% end %>
+	</html>
