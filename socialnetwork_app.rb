@@ -38,8 +38,12 @@ end
 
 post '/signup' do
   current_user = User.create(username: params[:sign_up_user_name], password: params[:sign_up_password])
-  session["user_id"] = current_user.id
-  redirect "/user/#{current_user.username}"
+  if current_user.valid?
+    session["user_id"] = current_user.id
+    redirect "/user/#{current_user.username}"
+  else
+    redirect '/incorrect-login'
+  end
 end
 
 post '/login' do
