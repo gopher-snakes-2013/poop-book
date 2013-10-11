@@ -10,9 +10,10 @@ require 'dotenv'
 Dotenv.load
 rescue LoadError
 end
-#do foreman start in command line for locally doin shhheet
+
+#Need to create .env file before running locally
 ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
-# when deploy
+
 
 enable :sessions
 
