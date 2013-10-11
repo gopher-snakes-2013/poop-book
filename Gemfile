@@ -1,11 +1,11 @@
 source "https://rubygems.org"
-ruby "1.9.3"
+ruby '1.9.3'
 
 gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'shotgun'
 
-group development do
+group :development do
   gem 'rspec'
   gem 'capybara'
   gem 'shoulda-matchers'
