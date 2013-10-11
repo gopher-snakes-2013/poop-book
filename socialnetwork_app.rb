@@ -19,7 +19,8 @@ enable :sessions
 post '/posts' do
   @logged_in_user = User.find(session["user_id"])
   @logged_in_user.posts << Post.create(:content => params["user_input"])
-  redirect '/user/:username'
+  current_username = @logged_in_user.username
+  redirect "/user/#{current_username}"
 end
 
 get '/' do
