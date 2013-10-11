@@ -43,7 +43,7 @@ post '/signup' do
     session["user_id"] = current_user.id
     redirect "/user/#{current_user.username}"
   else
-    redirect '/incorrect-login'
+    redirect '/username-taken'
   end
 end
 
@@ -59,5 +59,9 @@ post '/login' do
   else
     redirect '/incorrect-login'
   end
+end
+
+get '/username-taken' do
+  erb :username_taken
 end
 
