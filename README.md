@@ -11,10 +11,4 @@ poop-book.herokuapp.com
 
 ==================
 
-Things To Do:
-- Fix URL
-- Bcrypt gem sheettt
-- Give a shit about a friend (aka friend request)
-- View other people's 'stalls'
-- Post on other people's 'stalls'
-- 'Flush' a friend?
+
