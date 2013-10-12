@@ -11,6 +11,7 @@ Dotenv.load
 rescue LoadError
 end
 
+
 ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 
 
@@ -19,7 +20,8 @@ enable :sessions
 post '/posts' do
   @logged_in_user = User.find(session["user_id"])
   @logged_in_user.posts << Post.create(:content => params["user_input"])
-  redirect '/user/:username'
+  current_username = @logged_in_user.username
+  redirect "/user/#{current_username}"
 end
 
 get '/' do
@@ -43,7 +45,7 @@ post '/signup' do
     session["user_id"] = current_user.id
     redirect "/user/#{current_user.username}"
   else
-    redirect '/incorrect-login'
+    redirect '/username-taken'
   end
 end
 
@@ -61,7 +63,14 @@ post '/login' do
   end
 end
 
+
 post '/friend' do
   # Future release implementing navigation to other user pages.
   redirect "/user/#{params["selected_user"]}"
 end
+
+get '/username-taken' do
+  erb :username_taken
+end
+
+
