@@ -5,10 +5,14 @@ require 'sinatra/activerecord'
 require_relative 'models/user'
 require_relative 'models/post'
 
-# require 'dotenv'
-# Dotenv.load
-#do foreman start in command line for locally doin shhheet
-ActiveRecord::Base.establish_connection('postgres://localhost/poop-book')
+begin
+require 'dotenv'
+Dotenv.load
+rescue LoadError
+end
+
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
+
 
 enable :sessions
 
@@ -34,9 +38,13 @@ get '/incorrect-login' do
 end
 
 post '/signup' do
-  current_user = User.create!(username: params[:sign_up_user_name], password: params[:sign_up_password])
-  session["user_id"] = current_user.id
-  redirect "/user/#{current_user.username}"
+  current_user = User.create(username: params[:sign_up_user_name], password: params[:sign_up_password])
+  if current_user.valid?
+    session["user_id"] = current_user.id
+    redirect "/user/#{current_user.username}"
+  else
+    redirect '/incorrect-login'
+  end
 end
 
 post '/login' do
@@ -54,7 +62,6 @@ post '/login' do
 end
 
 post '/friend' do
-  p '*' * 60
-  p params
+  # Future release implementing navigation to other user pages.
   redirect "/user/#{params["selected_user"]}"
 end
