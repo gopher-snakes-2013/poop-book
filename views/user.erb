@@ -1,5 +1,20 @@
 <h1> Welcome to Poop-book, <%= @logged_in_user.username %>! </h1>
 
+<div class="friend_bar">
+
+	<p>Choose a friend</p>
+	  
+	<select name="selected_user" form="chosen_friend">
+		<% @users.each do |user| %>
+			<option value="<%= user.username %>"> <%= user.username %> </option>
+	  <% end %>
+	</select>
+
+		<form method="post" action="/friend" id="chosen_friend">
+	  <input type="submit" value="Go to Chosen Page">
+	  </form>
+
+</div>
 
 <form method="post" action="/posts">
 <label> New Post:

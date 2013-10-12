@@ -8,7 +8,7 @@ require_relative 'models/post'
 # require 'dotenv'
 # Dotenv.load
 #do foreman start in command line for locally doin shhheet
-ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
+ActiveRecord::Base.establish_connection('postgres://localhost/poop-book')
 
 enable :sessions
 
@@ -25,6 +25,7 @@ end
 get "/user/:username" do
   @logged_in_user = User.find(session["user_id"])
   @posts = Post.where(user_id: @logged_in_user.id).reverse
+  @users = User.all
   erb :user
 end
 
@@ -52,3 +53,8 @@ post '/login' do
   end
 end
 
+post '/friend' do
+  p '*' * 60
+  p params
+  redirect "/user/#{params["selected_user"]}"
+end
