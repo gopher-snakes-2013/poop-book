@@ -2,11 +2,11 @@
 <html>
 <head>
 	<title>Newsfeed</title>
+	<link rel="stylesheet" type="text/css" href="/newsfeed.css">
 </head>
 
 <body>
-	<h1> Welcome to Poop-book, <%= @logged_in_user.username %>! </h1>
-
+	<h1>Welcome to Poop Book, <%= @logged_in_user.username.capitalize %>!</h1>
 
 	<form method="post" action="/posts">
 		<label> New Post:
@@ -16,13 +16,13 @@
 		<input type="submit"/>
 	</form>
 
-	<h3> Poopy Posts: </h3>
+	<h3><u>Poopy Posts:</u></h3>
 
 	<% @posts.each do |post| %>
 	<li style ="list-style:none;margin-bottom:10px;margin-left: 5px;"> 
-		<p><strong><%= @logged_in_user.username%>:</strong>
-			<%= post.content %></p>
-			<% end %>
+		<p><strong><%= @logged_in_user.username.capitalize%>:</strong>
+			<%= post.content %>
+			<% end %></p>
 		</li>
 	</body>
 	</html>
